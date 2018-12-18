@@ -1,4 +1,4 @@
-package Real;
+package Gms;
 
 public class Calc {
 	public String plus(int a , int b) {

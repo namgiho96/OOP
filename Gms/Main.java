@@ -1,8 +1,5 @@
-package Real;
-
-
+package Gms;
 import java.text.Format;
-
 import javax.print.DocFlavor.STRING;
 import javax.swing.JOptionPane;
 public class Main {
@@ -18,7 +15,7 @@ public class Main {
 				JOptionPane.showInputDialog(null,"시스템 종료");
 			return;
 			case "1":
-				Member m = new Member();
+				Member m = new Member();//  member(); = 주소를 생성한다. 컨스트록터
 				String name =JOptionPane.showInputDialog("이름 입력");
 				m.name = name;
 				JOptionPane.showMessageDialog(null, 
@@ -55,7 +52,6 @@ public class Main {
 					break;
 				default:
 					break;
-					
 				}
 			case "2":
 				Calc calc = new Calc();
@@ -98,16 +94,20 @@ public class Main {
 								String.format(calc2.gugudan(ban)));
 					break;
 				}
-						
+				case "3":
+						Lotto lotto2 = new Lotto();
+						JOptionPane.showMessageDialog(null,
+								String.format(lotto2.lotto()));
 				break;
-			
-
-			
+				case "4":
+						Mycalender mycalender = new Mycalender();
+						String year = JOptionPane.showInputDialog("년도를 입력하세요");
+						String res = mycalender.calender(Integer.parseInt(year));
+						JOptionPane.showMessageDialog(null,
+								String.format("%s년은 %s 입니다.", year,res));
+					break;
 			}
 		}
-		
-		
-	
 		/* Scanner s = new Scanner(System.in);
 		 System.out.println("키 , 몸무게");
 		 double h = scanner.nextDouble();
@@ -116,5 +116,4 @@ public class Main {
 		 m.bmi();*/
 		 //System.out.println(res);
 		 }
-	
 }
