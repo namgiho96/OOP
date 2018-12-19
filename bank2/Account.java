@@ -34,6 +34,27 @@ public String today() {
 	SimpleDateFormat dateFormat =  new SimpleDateFormat("yyyy-MM-dd  HH:mm:ss");
 	return dateFormat.format(date);
 }	
+
+public String deposit(int in) {
+	String message = "";
+	if(in >0) {
+		this.money += in;
+		message = "거래완료";
+	}else {
+		message = "잘못입력하셧습니다";
+	}
+	return message;
+} 
+public String withdrawal(int out) {
+	String message = "";
+	if(this.money>=out&&out>0) {
+		this.money -= out;
+		message = "거래완료";
+	}else {
+		message = "잔액이 없습니다";
+	}
+	return message;
+}
 	
 public String open(String name) {
 	

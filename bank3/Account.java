@@ -35,5 +35,13 @@ public class Account {
 		return res;
 		
 	}
+	public String open() {
+		return String.format("은행이름%s"
+				+ "계좌번호s\n"
+				+ "이 름:%s\n"
+				+ "날 짜:%s\n"
+				+ "잔액%s\n"
+				,bankName,accountNum);
+	}
 		
 }

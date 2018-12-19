@@ -5,11 +5,14 @@ import javax.swing.JOptionPane;
 public class Main {
 	public static void main(String[] args) {
 		Member member = null;
+		Account account = null;
 		while(true) {
 			switch(JOptionPane.showInputDialog("0.종료\n"
 					+ "1.회원가입\n"
-					+ "0.계좌 개통\n"
-					+ "0.계좌보기\n")) {
+					+ "2.계좌 개통\n"
+					+ "3.계좌보기\n"
+					+ "4.입급"
+					+ "5.출금")) {
 			case "0": 
 				JOptionPane.showMessageDialog(null,"종료");
 					return;
@@ -19,9 +22,16 @@ public class Main {
 				String ssn = JOptionPane.showInputDialog("주민번호 등록");
 				String pass = JOptionPane.showInputDialog("비번 등록");
 				member = new Member(id, name, ssn, pass);
-				JOptionPane.showMessageDialog(null,member.info());
+				String info =member.info();
+				JOptionPane.showMessageDialog(null,info);
 				break;
-			
+			case "2":
+				account = new Account(0);
+				break;
+			case "3":
+				String a=member.info();
+				JOptionPane.showMessageDialog(null,a);
+				break;
 			}
 		}
 	}
