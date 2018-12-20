@@ -29,9 +29,10 @@ public class Main {
 				account = new Account(0);
 				break;
 			case "3":
-				String a=member.info();
-				JOptionPane.showMessageDialog(null,a);
-				break;
+				String open = account.open(member.name);
+				
+			
+				
 			}
 		}
 	}

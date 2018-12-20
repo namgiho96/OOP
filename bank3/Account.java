@@ -30,18 +30,18 @@ public class Account {
 	}
 	public String today() {
 		Date date = new Date();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd  HH:mm:ss");
 		String res ="";
-		return res;
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd  HH:mm:ss");
 		
+		return res;
 	}
-	public String open() {
+	public String open(String name) {
 		return String.format("은행이름%s"
 				+ "계좌번호s\n"
 				+ "이 름:%s\n"
 				+ "날 짜:%s\n"
 				+ "잔액%s\n"
-				,bankName,accountNum);
+				,BANK_NAME,accountNum,name,today,money);
 	}
 		
 }

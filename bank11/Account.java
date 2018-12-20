@@ -1,19 +1,31 @@
-package bank;
+package bank11;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 import java.util.Random;
 
 	public class Account {
-	final static String BANK_NAME = "국민은행";
-	String accountNUM,bankName;
-	int money;
-	String today;
+	public final static String BANK_NAME = "국민은행";
+	 private String accountNum,today;
+	 private int money;
+	
 	
 	Account(int money){
-		this.accountNUM = this.generatorAccountNum();
+		this.accountNum = this.generatorAccountNum();
 		this.money = money;
 		this.today = this.today();
+	}
+	public String getAccountNum() {
+		return  accountNum;
+	}
+	public String getToday() {
+		return  today;
+	}
+	public int getMoney() {
+		return  money;
+	}
+	public int setaMoney(int money) {
+		return money;
 	}
 public String  generatorAccountNum() {
 	String account = "";
@@ -62,13 +74,13 @@ public String today() {
 			
 }
 	
-public String open(String name) {
+public String toString() {
 	
 	return String.format("은행이름%s\n"
 			+ "계좌번호 %s\n"
 			+ "이 름 :%s \n"
 			+ "날 짜 %s \n"
-			+ "잔액:%s \n",BANK_NAME,accountNUM,name,today,money);
+			+ "잔액:%s \n",BANK_NAME,accountNum,today,money);
 	
 } 		
 	}
