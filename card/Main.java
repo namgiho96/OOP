@@ -2,8 +2,6 @@ package card;
 
 import javax.swing.JOptionPane;
 
-import car.Carbean;
-
 public class Main {
 	public static void main(String[] args) {
 		Cardbean carbean = null;
