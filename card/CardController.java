@@ -2,15 +2,17 @@ package card;
 
 import javax.swing.JOptionPane;
 
-public class Main {
+public class CardController {
+	private static String bet;
+
 	public static void main(String[] args) {
 		Cardbean carbean = null;
-		
+		CardServise servise = new CardServiseImpl();
 		while(true) {
 			switch(JOptionPane.showInputDialog(
 				
 					"0.종료\n"
-					+ "1.카드선택\n"
+					+ "1.배팅"
 					+ "2.카드정보\n"
 					)) {
 			case "0": 
@@ -18,11 +20,11 @@ public class Main {
 						"종료..");
 				return;
 			case "1" :
-				carbean = new Cardbean();
-				String kind = JOptionPane.showInputDialog("카드입력");
-				String number = JOptionPane.showInputDialog("카드번호");
-				carbean.setKind(kind);
-				carbean.setNumber(Integer.parseInt(number));
+				
+				String kind = JOptionPane.showInputDialog("카드의 종류");
+				String number = JOptionPane.showInputDialog("카드의 숫자");
+				String bet = JOptionPane.showInputDialog("얼마를 배팅할 건가요?");
+				servise.bet(Integer.parseInt(bet));
 				break;
 			case "2":
 				JOptionPane.showMessageDialog(null,carbean.toString());

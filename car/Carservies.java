@@ -1,7 +1,13 @@
 package car;
 
-public class Carservies {
-	private String color, gearType;
-	private int door;
+public interface Carservies {
+	
+	public void add(String brand,String color,String gearType,int door);
+	
+	public void list();
+	
+	public void find();
+	
+	public void sell();
 	
 }

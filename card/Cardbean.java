@@ -1,4 +1,4 @@
-package card;
+package card; 
 
 public class Cardbean {
 	private String kind; 

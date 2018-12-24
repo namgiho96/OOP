@@ -1,5 +1,5 @@
 package card;
 
-public class CardServise {
-
+public interface CardServise {
+	public void bet();
 }

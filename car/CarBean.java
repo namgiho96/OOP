@@ -1,6 +1,7 @@
 package car;
 public class CarBean {
-	private String color, gearType;
+	
+	private String brand,color, gearType,buy;
 	private int door; // 문의 갯수
 	
 	public void setColor(String color ) {
@@ -22,11 +23,21 @@ public class CarBean {
 	public int getDoor() {
 		return door;
 	}
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+	public String getBrand() {
+		return brand;
+	}
+	
 	
 	public String toString() {
-		return String.format("차색깔 :%s\n"
+		return String.format("차량정보 \n"
+				+ "브랜드\n"
+				+ "차색깔 :%s\n"
 				+ "기어 타입 %s \n"
 				+ "문의 개수%d \n",
+				brand,
 				color,
 				gearType,
 				door);

@@ -8,7 +8,7 @@ public class Controller {
 	public static void main(String[] args) {
 		AccountBean account = null;
 		MemberBaen member = null;
-		AccountService service = new AccountServiesImpl();
+		AccountService accountService = new AccountServiesImpl();
 		MemberService memberService = new MemberServiceImpl();
 		while(true) {
 			switch(JOptionPane.showInputDialog(
@@ -20,18 +20,26 @@ public class Controller {
 					+ "4.입금\n"
 					+ "5.출금\n"
 					+ "6.비번변경\n"
-					+ "7.회원정보")) {
+					+ "7.회원정보"
+					+ "8.회원목록"
+					+ "9.아이디 검색"
+					+ "10.로그인"
+					+ "11.회원수")) {
 			case "0": 
 				JOptionPane.showMessageDialog(null,
 						"종료..");
 				return;
 			case "1" :
-				member = memberService.join(JOptionPane.showInputDialog("ID 둥록"),
+						memberService.join(JOptionPane.showInputDialog("ID 둥록"),
 						JOptionPane.showInputDialog("이름 등록"),
 						JOptionPane.showInputDialog("주민번호 등록"),
 						JOptionPane.showInputDialog("비번 등록"));
 				break;
-			case "2":	
+			case "2":
+				
+				break;
+		
+			/*case "2":	
 				account = new AccountBean();
 				String accountNum = service.generatorAccountNum();
 				account.setAccountNum(accountNum);
@@ -45,7 +53,7 @@ public class Controller {
 						account.getToday(),
 						account.getMoney());
 				JOptionPane.showMessageDialog(null,info2);
-				break;
+				break;*/
 			case "3":
 				String open = account.toString();
 				JOptionPane.showMessageDialog(null, open);
@@ -68,7 +76,40 @@ public class Controller {
 				String info1 = member.toString();
 				JOptionPane.showMessageDialog(null,info1);
 				break;
+			case "8" :
+				MemberBaen[] members = memberService.list();
+				JOptionPane.showMessageDialog(null,members);
+				break;
+			case "9":
+				String id = JOptionPane.showInputDialog("아이디를 입력하세요");
+				JOptionPane.showMessageDialog(null,memberService.find(id));
+				break;
+			case "10":
+				id = JOptionPane.showInputDialog("로그인 아이디");
+				String pw = JOptionPane.showInputDialog("로그인 비번");
+				if(memberService.login(id, pw)) {
+					JOptionPane.showMessageDialog(null,"로그인 성공");
+				}else {
+					JOptionPane.showMessageDialog(null,"로그인실패");
 				}
+				JOptionPane.showMessageDialog(null,memberService.login(id, pw));
+				break;
+				/**
+				 * JOptionPane.showMessageDialog(null,(ok) ? "로그인성공" : "로그인실패");
+				 * */
+			case "11":
+				 
+				JOptionPane.showMessageDialog(null,memberService.count());
+				break;
+			case "12":
+				 memberService.update(JOptionPane.showInputDialog("아이디 입력"),
+						 JOptionPane.showInputDialog("비밀번호 입력"),
+						 JOptionPane.showInputDialog("변경할 비밀번호 입력"));
+				
+				break;
+				}
+			
+				
 		}
 	}
 }
